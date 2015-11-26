@@ -6,6 +6,7 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
@@ -21,6 +22,10 @@ public:
         N1 = l1;
         N2 = l2;
         
+        /*写的时候还是要注意一下自己写的规范。
+        You really have to think carefully about the side effect when you try ++j or --j
+        */
+
         do
         {
         	
