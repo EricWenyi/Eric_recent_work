@@ -1,0 +1,6 @@
+package test_io;
+public class IO{
+	public static void main(){
+		System.out.println("What is wrong.");
+	}
+}
