@@ -1,17 +1,4 @@
 INDEX VERSION 1.127+E:\GitHub_File\Eric_recent_work\Java_Workspace\.metadata\.plugins\org.eclipse.jdt.core
 1934113615.index
-1420290924.index
-3235985208.index
-4145325076.index
-2120812249.index
-2337381653.index
-360979095.index
-3889947494.index
-42302444.index
-1964604981.index
-3731969993.index
+3411630241.index
 1477819964.index
-839242000.index
-1522631148.index
-3757428277.index
-490631367.index
