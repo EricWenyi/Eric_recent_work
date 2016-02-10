@@ -1,0 +1,71 @@
+import edu.princeton.cs.algs4.StdRandom;
+import edu.princeton.cs.algs4.StdStats;
+import edu.princeton.cs.algs4.WeightedQuickUnionUF;
+
+public class PercolationStats {
+	private int t;
+	private Percolation pe;
+	private double[] results;
+	private int[] randomlist;
+   public PercolationStats(int N, int T){ // perform T independent experiments on an N-by-N grid
+	   if (N <= 0 || T <= 0) 
+		   throw new java.lang.IllegalArgumentException("Illegial N or T");
+	   t = T;							  //initialize t
+	   results = new double[T];
+	   randomlist = new int[N*N];
+	   
+	   for(int k = 0; k < N*N; k++) 
+		   randomlist[k] = k;
+	   
+	   
+	   
+	   for(int k = 0; k< T; k++){
+		   StdRandom.shuffle(randomlist);
+		   int counter = 0;
+		   pe = new Percolation(N);
+		   while(!pe.percolates()){
+			   int i = (int)(randomlist[counter] / N) + 1;
+			   int j = (int)(randomlist[counter] % N) + 1;
+			   StdOut.println(i + " " + j);
+			   pe.open(i,j);
+			   counter++;
+		   }
+		   
+		   results[k] = (double)counter / (N * N);
+		   //StdOut.println(results[k]);
+	   }
+   }
+   public double mean(){// sample mean of percolation threshold
+	   double means = StdStats.mean(results);
+	   return means;
+   }                      
+   public double stddev(){// sample standard deviation of percolation threshold
+	   double Std = StdStats.stddev(results);
+	   return Std;
+   }                    
+   public double confidenceLo(){// low  endpoint of 95% confidence interval
+	   double means = mean();
+	   double stddev = stddev();
+	   return means - (1.96 * stddev)/Math.sqrt((double)t);
+   }              
+   public double confidenceHi(){// high endpoint of 95% confidence interval
+	   double means = mean();
+	   double stddev = stddev();
+	   return means + (1.96 * stddev)/Math.sqrt((double)t);
+   }              
+
+   public static void main(String[] args){// test client (described below)
+	   int N = StdIn.readInt();
+	   int T = StdIn.readInt();
+	   PercolationStats ps;
+	   ps = new PercolationStats(N,T);
+	   double means = ps.mean();
+	   double stddev = ps.stddev();
+	   double cLo = ps.confidenceLo();
+	   double cHi = ps.confidenceHi();
+	   StdOut.println("mean                    = " + means);
+	   StdOut.println("stddev                  = " + stddev);
+	   StdOut.println("95% confidence interval = " + cLo + "," + cHi);
+	   return;
+   }    
+}
