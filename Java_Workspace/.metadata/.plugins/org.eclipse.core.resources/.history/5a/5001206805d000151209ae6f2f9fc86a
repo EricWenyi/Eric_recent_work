@@ -71,7 +71,7 @@ public class Percolation {
 		valid(i,j);
 		
 		int num = mapto1D(i,j);
-		if(uf.connected(n*n,num) && open[num]){
+		if(uf.connected(n*n,num)){
 			//StdOut.println("This site is full");
 			return true;
 		}
@@ -99,7 +99,6 @@ public class Percolation {
 			pe.open(i,j);
 			//pe.isFull(i, j);
 		}
-		if (pe.isFull(1, 1))
 		//int f1 = pe.uf.find(N*N);
 		//int f2 = pe.uf.find(N*N + 1);
 		//StdOut.println(f1 + "  " + f2);
