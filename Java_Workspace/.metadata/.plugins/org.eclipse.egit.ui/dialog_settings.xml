@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="2" key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel"/>
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/tcwangshiqi/Tankwar2.git"/>
+		<item value="file:///G:\Tankwar2-master"/>
+	</list>
+	<section name="GitImportWizard">
+	</section>
+</section>
