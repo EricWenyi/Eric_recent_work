@@ -1,3 +1,11 @@
+#do not igonre .h .cpp .c .java .py source files
+!*.c
+!*.cpp
+!*.h
+!*.java
+!*.py
+!*.cbp
+
 #ignore compile files in the C_Workspace
 /C_Workspace/*
 
@@ -7,10 +15,3 @@
 #ignore comple files in the Py_Works
 /Py_Works/*
 
-#do not igonre .h .cpp .c .java .py source files
-!*.c
-!*.cpp
-!*.h
-!*.java
-!*.py
-!*.cbp
