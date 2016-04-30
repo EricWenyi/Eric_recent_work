@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1462022040 source:e:\github_file\eric_recent_work\c_workspace\findelementinspecialmatrix\main.cpp
+	<iostream>
+	<vector>
+	<bits/stdc++.h>
+
