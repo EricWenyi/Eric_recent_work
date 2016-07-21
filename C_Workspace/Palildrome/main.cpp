@@ -11,10 +11,10 @@ public:
 
         int n1 = 1;
 
-        while(x / n1 > 10){
+        while(x / n1 >= 10){
             n1 *= 10;
         }
-        cout<<n1<<endl;
+        //cout<<n1<<endl;
 
         int n2 = 1;
 
