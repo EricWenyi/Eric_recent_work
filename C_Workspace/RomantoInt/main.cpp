@@ -53,7 +53,7 @@ public:
                     num += 9;
                     i++;
                 }
-                else if(s[i] == 'V'){
+                else if(s[i + 1] == 'V'){
                     num += 4;
                     i++;
                 }

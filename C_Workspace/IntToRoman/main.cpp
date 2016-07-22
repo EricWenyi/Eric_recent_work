@@ -12,7 +12,7 @@ public:
         stack<int> bits;
         int n = 1;
 
-        while(n < num){
+        while(n <= num){
             int bit;
             bit = (num / n) % 10;
             bits.push(bit);
@@ -54,7 +54,7 @@ public:
                     case 1: s.append("X"); break;
                     case 2: s.append("XX"); break;
                     case 3: s.append("XXX"); break;
-                    case 4: s.append("LX"); break;
+                    case 4: s.append("XL"); break;
                     case 5: s.append("L"); break;
                     case 6: s.append("LX"); break;
                     case 7: s.append("LXX"); break;
@@ -87,6 +87,6 @@ public:
 int main()
 {
     Solution s;
-    string sl = s.intToRoman(3999);
+    string sl = s.intToRoman(1);
     cout<<sl<<endl;
 }
