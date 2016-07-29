@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1469805441 source:e:\github_file\eric_recent_work\c_workspace\longestcommonprefix\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+
