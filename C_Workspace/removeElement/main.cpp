@@ -13,7 +13,7 @@ public:
         p1 = 0;
         p2 = nums.size() - 1;
 
-        while(p1 < p2){
+        while(p1 <= p2){
 
             while(nums[p2] == val){
                 p2--;
@@ -32,7 +32,7 @@ public:
             }
         }
 
-        return p1 ;
+        return p1+1 ;
     }
 };
 
@@ -40,12 +40,12 @@ int main()
 {
     vector<int> nums;
 
-    for(int i = 0; i < 2; i++){
-        nums.push_back(3);
+    for(int i = 0; i < 5; i++){
+        nums.push_back(i);
     }
 
     Solution s;
-    int n = s.removeElement(nums,5);
+    int n = s.removeElement(nums,3);
     for(size_t i = 0; i < nums.size(); i++){
         cout<<nums[i]<<endl;
     }
