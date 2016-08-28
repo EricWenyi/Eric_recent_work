@@ -3,7 +3,7 @@
 using namespace std;
 
 void print_num(int n){
-    if(n>100)
+    if(n>10)
         return;
     else{
         cout<<n++<<" ";
