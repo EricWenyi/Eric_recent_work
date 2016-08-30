@@ -47,7 +47,7 @@ public:
         string s = "1";
         for(int i = 1; i < n; i++){
             s = GenerateSequence(s);
-            cout<<s<<endl;
+            //cout<<s<<endl;
         }
         return s;
     }
