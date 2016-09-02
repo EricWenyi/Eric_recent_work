@@ -35,7 +35,7 @@ public:
 
 int main()
 {
-    string s = "                        thi                             ";
+    string s = "thi                             ";
     Solution p;
     int n = p.lengthOfLastWord(s);
     cout<<n<<endl;
