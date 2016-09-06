@@ -19,7 +19,7 @@ public:
         for(i = 0; i < nums.size(); i++){
             int target = -nums[i];
 
-            int front = i;
+            int front = i+1;
             int back = nums.size() - 1;
 
             while(front < back){
