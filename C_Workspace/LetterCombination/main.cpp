@@ -6,7 +6,12 @@ using namespace std;
 class Solution {
 public:
     vector<string> letterCombinations(string digits) {
+
         vector<string> res;
+
+        if(digits.size() == 0){
+            return res;
+        }
 
         string digitalmap[] = {"0","1","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
 
