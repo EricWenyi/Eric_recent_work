@@ -57,16 +57,6 @@ public:
 
         return root;
     }
-
-    void BFS(TreeNode *root){
-        if(root != NULL){
-            cout<<" "<<root->val<<",";
-            BFS(root->left);
-            BFS(root->right);
-        }
-        else
-            cout<<" #,";
-    }
 };
 
 int main()
