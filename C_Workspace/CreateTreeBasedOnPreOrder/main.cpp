@@ -29,30 +29,43 @@ public:
 
     TreeNode *ConstructCore(vector<int> &preorder,int start_pre, vector<int> &inorder, int start_in, int length){
         //set the root value first
-        if(length = 0)
+        if(length == 0)
             return NULL;
 
         TreeNode *root = new TreeNode(preorder[start_pre]);
         root->left = NULL;
         root->right = NULL;
 
-        if(preorder[start_pre] == inorder[start_in])
-            return root;
+
+//        if(preorder[start_pre] == inorder[start_in])
+//            return root;
 
         //find the root position in the inorder
 
-        int i = 0;
-        while(i < length && inorder[i] != preorder[0]){
+        int i = start_in;
+        while(inorder[i] != preorder[start_pre] && i < start_in + length){
             i++;
         }
 
+
+
         int left_length = i - start_in;
-        int right_length = length - i;
+        int right_length = length - left_length - 1;
 
         root->left = ConstructCore(preorder, start_pre + 1, inorder, i - left_length, left_length);
-        root->right = ConstructCore(preorder,i+1, inorder, i + 1, right_length);
+        root->right = ConstructCore(preorder,start_pre + 1 + left_length, inorder, i + 1, right_length);
 
         return root;
+    }
+
+    void BFS(TreeNode *root){
+        if(root != NULL){
+            cout<<" "<<root->val<<",";
+            BFS(root->left);
+            BFS(root->right);
+        }
+        else
+            cout<<" #,";
     }
 };
 
@@ -66,6 +79,33 @@ int main()
 
     Solution s;
     TreeNode *root = s.buildTree(preorder, inorder);
+
+    TreeNode *temp = root->right;
+
+    cout<<temp->val<<endl;
+
+    temp  = temp->right;
+
+    if(temp == NULL){
+        cout<<"#"<<endl;
+    }
+    else{
+        cout<<temp->val<<endl;
+    }
+
+    temp = temp->left;
+
+    if(temp == NULL){
+        cout<<"#"<<endl;
+    }
+    else{
+        cout<<temp->val<<endl;
+    }
+
+    TreeNode *traverse = root;
+
+    //s.BFS(root);
+
 
     return 0;
 }
