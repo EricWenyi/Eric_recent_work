@@ -21,16 +21,31 @@ public:
      */
     void deleteNode(ListNode *node) {
         // write your code here
-        int temp = node->next->val;
+        if(node->next != NULL){
+            int temp = node->next->val;
+            node->val = temp;
+            node->next = node->next->next;
+        }
+        else{
+            node = NULL;
+        }
 
-        node->val = temp;
-
-        node->next = node->next->next;
     }
 };
 
 int main()
 {
-    cout << "Hello world!" << endl;
-    return 0;
+    cout<<NULL<<endl;
+    ListNode *head = new ListNode(5);
+    ListNode *one = new ListNode(6);
+    ListNode *two = new ListNode(7);
+    head->next = one;
+    one->next = two;
+
+    Solution s;
+    s.deleteNode(two);
+    while(head != NULL){
+        cout<<head->val<<" ";
+        head = head->next;
+    }
 }
