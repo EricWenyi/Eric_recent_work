@@ -1,0 +1,2 @@
+LIBRARY ¡°MexC.mexw32¡±
+EXPORTS mexFunction

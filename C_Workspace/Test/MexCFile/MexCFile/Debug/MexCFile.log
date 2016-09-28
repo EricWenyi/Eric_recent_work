@@ -1,0 +1,28 @@
+﻿生成启动时间为 2016/9/26 15:11:33。
+     1>项目“E:\GitHub_File\Eric_recent_work\C_Workspace\Test\MexCFile\MexCFile\MexCFile.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Debug\MexCFile.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         所有输出均为最新。
+       ResourceCompile:
+         所有输出均为最新。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(E:\GitHub_File\Eric_recent_work\C_Workspace\Test\MexCFile\Debug\MexCFile.exe) 与 Linker 的 OutputFile 属性值(E:\GitHub_File\Eric_recent_work\C_Workspace\Test\MexCFile\MexCFile\Mex.mexw32)不匹配。这可能导致项目生成不正确。若要更正此问题，请确保 $(OutDir)、$(TargetName) 和 $(TargetExt) 属性值与 %(Link.OutputFile) 中指定的值匹配。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(991,5): warning MSB8012: TargetExt(.exe) 与 Linker 的 OutputFile 属性值(.mexw32)不匹配。这可能导致项目生成不正确。若要更正此问题，请确保 $(OutDir)、$(TargetName) 和 $(TargetExt) 属性值与 %(Link.OutputFile) 中指定的值匹配。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(992,5): warning MSB8012: TargetName(MexCFile) 与 Linker 的 OutputFile 属性值(Mex)不匹配。这可能导致项目生成不正确。若要更正此问题，请确保 $(OutDir)、$(TargetName) 和 $(TargetExt) 属性值与 %(Link.OutputFile) 中指定的值匹配。
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Mex.mexw32" /NOLOGO /LIBPATH:C:\MATLAB7\extern\lib\win32\microsoft kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib C:\MATLAB7\extern\lib\win32\microsoft\msvc60\libmex.lib C:\MATLAB7\extern\lib\win32\microsoft\msvc60\libmat.lib C:\MATLAB7\extern\lib\win32\microsoft\msvc60\libmx.lib /DEF:"MexCDef.def" /MANIFEST /ManifestFile:"Debug\MexCFile.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\GitHub_File\Eric_recent_work\C_Workspace\Test\MexCFile\Debug\MexCFile.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\GitHub_File\Eric_recent_work\C_Workspace\Test\MexCFile\Debug\MexCFile.lib" /MACHINE:X86 Debug\mexversion.res
+         Debug\eig3volume.obj /export:mexFunction /dll 
+            正在创建库 E:\GitHub_File\Eric_recent_work\C_Workspace\Test\MexCFile\Debug\MexCFile.lib 和对象 E:\GitHub_File\Eric_recent_work\C_Workspace\Test\MexCFile\Debug\MexCFile.exp
+     1>LINK : warning LNK4232: 名称 “MexC.mexw32” 包含非 ASCII 字符，在具有除 936 以外的 ANSI 代码页的系统上可能不能加载 DLL
+     1>MexCFile.exp : warning LNK4070: .EXP 中的 /OUT:“MexC.mexw32” 指令与输出文件名“Mex.mexw32”不同；忽略指令
+         MexCFile.vcxproj -> E:\GitHub_File\Eric_recent_work\C_Workspace\Test\MexCFile\Debug\MexCFile.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"Mex.mexw32;#1" /manifest Debug\MexCFile.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         正在删除文件“Debug\MexCFile.unsuccessfulbuild”。
+         正在对“Debug\MexCFile.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\GitHub_File\Eric_recent_work\C_Workspace\Test\MexCFile\MexCFile\MexCFile.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.58
