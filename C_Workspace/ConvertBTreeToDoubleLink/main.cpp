@@ -35,7 +35,7 @@ public:
 
         DoublyListNode *head = new DoublyListNode(0);
 
-        if(root->left != NULL && root->right != NULL){
+        if(root->left != NULL || root->right != NULL){
             //in-order recursively the tree
             RecTest(root, &head);
         }
@@ -43,7 +43,7 @@ public:
             head->val = root->val;
         }
 
-       while(head->prev != NULL){
+        while(head->prev != NULL){
             head = head->prev;
         }
 
@@ -51,37 +51,35 @@ public:
 
     }
 
-    void RecTest(TreeNode* root, DoublyListNode** head){
+    void RecTest(TreeNode* root, DoublyListNode** head_p){
         if(root == NULL){
             return;
         }
 
         if(root->left != NULL){
-            RecTest(root->left, head);
+            RecTest(root->left, head_p);
         }
         else if(root->left == NULL && root->right == NULL){//leaf node
 
-            (*head)->val = root->val;
+            (*head_p)->val = root->val;
             //new a new obj
-            DoublyListNode* new_head = new DoublyListNode(0);
-            (*head)->next = new_head;
-            new_head->prev = (*head);
-            head = &new_head;
-            delete new_head;
+            DoublyListNode* new_head_left = new DoublyListNode(0);
+            (*head_p)->next = new_head_left;
+            new_head_left->prev = (*head_p);
+            *head_p = new_head_left;
 
             return;
         }
 
-        (*head)->val = root->val;
+        (*head_p)->val = root->val;
             //new a new obj
         DoublyListNode* new_head = new DoublyListNode(0);
-        (*head)->next = new_head;
-        new_head->prev = (*head);
-        head = &new_head;
-        delete new_head;
+        (*head_p)->next = new_head;
+        new_head->prev = (*head_p);
+        *head_p = new_head;
 
         if(root->right != NULL){
-            RecTest(root->right, head);
+            RecTest(root->right, head_p);
         }
 
         return;
@@ -101,7 +99,7 @@ int main()
     Solution s;
     DoublyListNode *node = s.bstToDoublyList(root);
 
-    while(node != NULL){
+    while(node->next != NULL){
         cout<<node->val<<" ";
         node = node->next;
     }
