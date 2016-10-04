@@ -30,48 +30,81 @@ public:
      */
     DoublyListNode* bstToDoublyList(TreeNode* root) {
         // Write your code here
-        DoublyListNode *head = new DoublyListNode();
-
         if(root == NULL)
             return NULL;
 
-        if(root->left == NULL && root->right == NULL){
-            head->val = root->val;
-            head->next = NULL;
-            head->prev = NULL;
+        DoublyListNode *head = new DoublyListNode(0);
+
+        if(root->left != NULL && root->right != NULL){
+            //in-order recursively the tree
+            RecTest(root, &head);
         }
         else{
             head->val = root->val;
-            head->prev = bstReLeft(root->left,head);
-            head->next = bstReRight(root->right,head);
+        }
+
+       while(head->prev != NULL){
+            head = head->prev;
         }
 
         return head;
+
     }
 
-    DoublyListNode* bstReLeft(TreeNode* root, DoublyListNode* head){
-        DoublyListNode *node = new DoublyListNode();
-
-        if(root == NULL)
-            return NULL;
-        if(root->left == NULL && root->right == NULL){
-            node->val = root->val;
-            node->next = head;
-            node->prev = NULL;
+    void RecTest(TreeNode* root, DoublyListNode** head){
+        if(root == NULL){
+            return;
         }
-        else{
-            head->val = root->val;
 
+        if(root->left != NULL){
+            RecTest(root->left, head);
         }
+        else if(root->left == NULL && root->right == NULL){//leaf node
+
+            (*head)->val = root->val;
+            //new a new obj
+            DoublyListNode* new_head = new DoublyListNode(0);
+            (*head)->next = new_head;
+            new_head->prev = (*head);
+            head = &new_head;
+            delete new_head;
+
+            return;
+        }
+
+        (*head)->val = root->val;
+            //new a new obj
+        DoublyListNode* new_head = new DoublyListNode(0);
+        (*head)->next = new_head;
+        new_head->prev = (*head);
+        head = &new_head;
+        delete new_head;
+
+        if(root->right != NULL){
+            RecTest(root->right, head);
+        }
+
+        return;
     }
 
-    DoublyListNode* bstReRight(TreeNode* root, DoublyListNode* head){
-        if(root == )
-    }
 };
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    TreeNode *root = new TreeNode(2);
+    TreeNode *left_c = new TreeNode(1);
+    TreeNode *right_c = new TreeNode(3);
+
+    root->left = left_c;
+    root->right = right_c;
+
+    Solution s;
+    DoublyListNode *node = s.bstToDoublyList(root);
+
+    while(node != NULL){
+        cout<<node->val<<" ";
+        node = node->next;
+    }
+
     return 0;
 }
