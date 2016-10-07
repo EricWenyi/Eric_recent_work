@@ -31,7 +31,6 @@ public:
                 m[nums[i]] = 1;
             }
         }
-        cout<<it->second<<endl;
         return it->first;
 
 
