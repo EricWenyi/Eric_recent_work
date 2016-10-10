@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1476047679 source:e:\github_file\eric_recent_work\c_workspace\driverandpassangers\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+	<fstream>
+	<sstream>
+	<vector>
+	<string>
+
