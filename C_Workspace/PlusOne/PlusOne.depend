@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1476181395 source:e:\github_file\eric_recent_work\c_workspace\plusone\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+
