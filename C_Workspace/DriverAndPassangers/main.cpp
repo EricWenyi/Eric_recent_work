@@ -5,7 +5,12 @@
 #include <vector>
 #include <string>
 
+#define Participate 6
 #define HasCar 7
+#define DriverWilling 8
+#define HowMany 12
+#define Drive? 14
+#define PickUp?
 
 using namespace std;
 
@@ -49,7 +54,7 @@ std::istream& operator>>(std::istream& str, CSVRow& data)
 
 void ParseDriverAndPassanger(vector<vector<string> >& origin_data, vector<vector<string> >& Driver, vector<vector<string> >& Passangers){
     for(size_t i = 0; i < origin_data.size(); i++){
-        if(origin_data[i][HasCar] == "有"){
+        if(origin_data[i][HasCar] == "有" && origin_data[i][DriverWilling] == "愿意" && origin_data[i][] ){
 
         }
     }
@@ -70,12 +75,6 @@ int main()
     }
 
     origin_data.erase(origin_data.begin()); //clean the header
-
-    cout<<origin_data[0][1]<<endl;
-
-    if(origin_data[0][1] == "李哲宇"){
-        cout<<"Yea"<<endl;
-    }
 
     vector<vector<string> > Driver;
     vector<vector<string> > Passanger;
