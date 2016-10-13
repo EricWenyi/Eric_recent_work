@@ -8,6 +8,10 @@ public:
      * @param nums n non-negative integer array
      * @return a string
      */
+
+    bool compare(string A, string B){
+        return ((A+B) > (B + A));
+    }
     string minNumber(vector<int>& nums) {
         // Write your code here
 
