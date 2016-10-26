@@ -10,26 +10,37 @@ public:
      * param n : As description.
      * return: How many k's between 0 and n.
      */
-    int digitCounts(int k, int n) {
-        // write your code here
-        int temp = n;
-        int length = 0;
-        while(temp != 0){
-            temp = temp / 10;
-            length++;
+     int findK(int k,int num){
+        stringstream ss;
+        string snum;
+        int counter = 0;
+
+        ss<<num;
+        ss>>snum;
+
+        for(size_t i = 0; i < snum.size(); i++){
+            if(snum[i] - '0' == k)
+                counter++;
         }
 
-        return length;
+        return counter;
+     }
+
+    int digitCounts(int k, int n) {
+        // write your code here
+        int res = 0;
+        for(int i = 0; i <= n; i++){
+            res += findK(k,i);
+        }
+
+        return res;
     }
+
+
 };
 
 int main()
 {
-    int length;
-
     Solution s;
-    length = s.digitCounts(2,49);
-    cout<<length;
-
-    return 0;
+    cout<<s.digitCounts(1,12);
 }
