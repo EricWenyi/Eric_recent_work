@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1477623953 source:e:\github_file\eric_recent_work\c_workspace\reversewordsinstring\main.cpp
+	<iostream>
+	<bits/stdc++.h>
+

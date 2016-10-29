@@ -10,6 +10,8 @@ public:
 	 */
     int singleNumber(vector<int> &A) {
         // write your code here
+        if(A.size()%2 != 1)
+            return 0;
         map<int,int> dic;
         for(int i = 0 ; i < A.size(); i++){
             dic[A[i]]++;
