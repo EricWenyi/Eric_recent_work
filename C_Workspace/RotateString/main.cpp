@@ -23,6 +23,8 @@ public:
 
     void rotateString(string &str,int offset){
         //wirte your code here
+        offset = offset % str.size();
+
         ReverseString(str, str.begin(), --str.end());
 
         string::iterator pos = str.begin();
@@ -39,8 +41,6 @@ public:
 
         ReverseString(str,str.begin(), pos);
         ReverseString(str, ++pos, --str.end());
-
-        cout<<str<<endl;
 
     }
 };
