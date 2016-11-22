@@ -13,6 +13,12 @@ public:
         // write your code here
         vector<int> res;
 
+        if(A.empty()){
+            res.push_back(-1);
+            res.push_back(-1);
+            return res;
+        }
+
         int start = 0;
         int backside = A.size() - 1;
         int middle = (start + backside)/2;
