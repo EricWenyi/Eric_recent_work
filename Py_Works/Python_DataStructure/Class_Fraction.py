@@ -18,6 +18,12 @@ class Fraction:
     def __str__(self):
         return str(self.num) + '/' + str(self.den)
 
+    def getNum:
+        return self.num
+
+    def getDen:
+        return self.den
+
     def __add__(self, other):
 
         newnum = self.num*other.den + other.num*self.den
