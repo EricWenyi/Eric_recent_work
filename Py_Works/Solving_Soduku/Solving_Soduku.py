@@ -1,0 +1,51 @@
+import random
+import itertools
+import numpy
+
+#This function is used to make a board
+def make_board(m = 3):
+    numbers = list(range(1, m**2 + 1))
+    board = None
+    omit = 2
+    while board is None:
+        board = attempt_board(m,numbers)
+
+    for i,j in itertools.product(range(omit), range(m ** 2)):
+        x = random.choice(numbers) - 1
+        board[x][j] = None
+    return board
+
+#This function is used to generate a full board
+def attempt_board(m,numbers):
+    n = m ** 2
+
+    board = [[None for _ in range(n)] for _ in range(n)]
+    for i, j in itertools.product(range(n), repeat=2):
+        i0, j0 = i - i % m, j - j % m    #origin of m * m block
+        random.shuffle(numbers)
+        for x in numbers:
+            if (x not in board[i]                    #row
+                and all(row[j] != x for row in board)#column
+                and all(x not in row[j0:j0+m]
+                        for row in board[i0:i])):
+                board[i][j] = x
+                break
+        else:
+            return None
+    return board
+
+#This function is used to print the whole Soduku out
+def print_board(board):
+    spacer = "++---+---+---++---+---+---++---+---+---++"
+    print (spacer.replace('-','='))
+    for i, line in enumerate(board):
+        print("|| {} | {} | {} || {} | {} | {} || {} | {} | {} ||"
+              .format(*(cell or ' ' for cell in line)))
+        if (i + 1) % 3 == 0: print(spacer.replace('-', '='))
+        else: print(spacer)
+
+test = make_board()
+print_board(test)
+
+
+
