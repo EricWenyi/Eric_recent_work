@@ -65,8 +65,7 @@ def print_answers(board):
 def solving_soduku(challange, m=3):
     if is_full(challange):
         return challange
-    test = deepcopy(challange)
-    least, x, y = least_candidate(challange)
+    x, y = least_candidate(challange)
     id = x * (m**2) + y
     result = try_candidate(challange,id)
     return result
@@ -89,7 +88,7 @@ def try_candidate(challange, id, m=3):
         challange[x][y] = candidate[i]
         result_r = try_candidate(challange, (id + 1) % m ** 4)
         if not result_r:
-            challange[x][y] = None
+            pass
         else:
             return challange
     challange[x][y] = None
@@ -120,7 +119,7 @@ def least_candidate(challange, m=3):
             if num < least:
                 least = num
                 x, y = i, j
-    return least, x, y
+    return x, y
 
 
 def is_full(challange, m = 3):
@@ -131,22 +130,22 @@ def is_full(challange, m = 3):
 
 Board = make_board()
 challange = print_board(Board)
-'''
-testing = [[8,9,None,3,None,4,None,6,None],
-           [None,None,2,9,1,5,3,None,8],
-           [5, None,None,None,8,7,None,2,None],
-           [None,8,9,None,3,6,None,None,None],
-           [4,1,None,5,None,2,8,7,3],
-           [3,None,5,None,None,None,6,None,None],
-           [9,4,3,None,7,1,None,None,6],
-           [None,5,8,4,None,None,9,1,7],
-           [None,None,None,None,5,None,2,None,4]]
-'''
 
-print("Raw Answer: ")
-print_answers(test)
-print("Calculated from your program: ")
-result = solving_soduku(challange)
+testing = [[8,None,None,None,None,None,None,None,None],
+           [None,None,3,6,None,None,None,None,None],
+           [None, 7,None,None,9,None,2,None,None],
+           [None,5,None,None,None,7,None,None,None],
+           [None,None,None,None,4,5,7,None,None],
+           [None,None,None,1,None,None,None,3,None],
+           [None,None,1,None,None,None,None,6,8],
+           [None,None,8,5,None,None,None,1,None],
+           [None,9,None,None,None,None,4,None,None]]
+
+#wait = raw_input("PRESS ENTER TO SHOW THE ANSWER.")
+#print("Raw Answer: ")
+#print_answers(Board)
+#print("Calculated from your program: ")
+result = solving_soduku(testing)
 print_answers(result)
 
 
