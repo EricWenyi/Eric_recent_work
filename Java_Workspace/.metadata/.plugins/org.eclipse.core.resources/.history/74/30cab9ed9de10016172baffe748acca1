@@ -1,0 +1,134 @@
+package Default;
+
+public class Solution {
+	public static String solution(int N, String S, String T){
+		// 0 means nothing, 1 means ship, 2 means hit
+		if(S == ""){
+			return "0,0";
+		}
+		int[][] board = new int[N][N];
+		String[] different_ships = S.split(","); //split different ships
+		
+		//System.out.println(different_ships[0]);
+		//System.out.println(different_ships[1]);
+		
+		for(int i = 0; i < different_ships.length; i++){
+			String start_point = different_ships[i].split(" ")[0]; //split start point of ship
+			String end_point = different_ships[i].split(" ")[1]; //split end point of ship
+			
+			int[] start_position = new int[2];
+			start_position = GetPosition(start_point);
+			int start_num = start_position[0];
+			int start_char = start_position[1];
+			
+			int[] end_position = new int[2];
+			end_position = GetPosition(end_point);
+			int end_num = end_position[0];
+			int end_char = end_position[1];
+			
+			for(int x = start_num; x <= end_num; x++){
+				for(int y = start_char; y <= end_char; y++){
+					board[x][y] = 1;
+				}
+			}
+			
+		}
+		
+		String[] different_shots = T.split(" ");
+		
+		for(int i = 0; i < different_shots.length; i++){
+			int[] shot_position = new int[2];
+			shot_position = GetPosition(different_shots[i]);
+			int shot_num = shot_position[0];
+			int shot_char = shot_position[1];
+			
+			if( board[shot_num][shot_char] == 1){
+				board[shot_num][shot_char] = 2;
+			}
+			else{
+				;
+			}
+		}
+		
+		
+		return CheckShips(different_ships,board, N);
+	}
+	
+	public static void main(String[] args){
+		int N = 12;
+		String S = "1A 2B";
+		String T = "";
+		
+		String res = solution(N,S,T);
+		System.out.println(res);
+	}
+	
+	public static int[] GetPosition(String position){
+		int markpoint = 0;
+		int[] results = new int[2];
+		for(int i = 0; i < position.length(); i++){
+			if(position.charAt(i) > '9'){
+				markpoint = i;
+			}
+		}
+		String temp = position.substring(0,markpoint);
+		results[0] = Integer.parseInt(temp) - 1;
+		results[1] = position.charAt(markpoint) - 65;
+		return results;
+	}
+	
+	public static String CheckShips(String[] different_ships, int[][] board, int N){
+		int sunk_num = 0;
+		int hit_num = 0;
+		for(int i = 0; i < different_ships.length; i++){
+			String start_point = different_ships[i].split(" ")[0]; //split start point of ship
+			String end_point = different_ships[i].split(" ")[1]; //split end point of ship
+			
+			int[] start_position = new int[2];
+			start_position = GetPosition(start_point);
+			int start_num = start_position[0];
+			int start_char = start_position[1];
+			
+			int[] end_position = new int[2];
+			end_position = GetPosition(end_point);
+			int end_num = end_position[0];
+			int end_char = end_position[1];
+			
+			boolean is_hit = false;
+			boolean is_sunk = true;
+			for(int x = start_num; x <= end_num; x++){
+				for(int y = start_char; y <= end_char; y++){
+					if(!is_hit){
+						if(board[x][y] == 2){
+							is_hit = true;
+						}
+					}
+					
+					if(is_sunk){
+						if(board[x][y] == 1){
+							is_sunk = false;
+						}
+					}
+					
+				}
+			}
+			
+			if(is_sunk){
+				is_hit = false;
+			}
+			
+			if(is_hit){
+				hit_num++;
+			}
+			if(is_sunk){
+				sunk_num++;
+			}
+			
+		}
+		
+		String results = "";
+		results = results + Integer.toString(sunk_num) + "," +  Integer.toString(hit_num);
+		return results;
+		
+	}
+}

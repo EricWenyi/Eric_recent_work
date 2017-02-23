@@ -1,0 +1,20 @@
+package Default;
+
+public class Solution {
+	public String solution(int N, String S, String T){
+		// 0 means nothing, 1 means ship, 2 means hit
+		
+		int[][] board = new int[N][N];
+		
+		String[] different_ships = S.split(",");
+		
+		for(int i = 0; i < different_ships.length; i++){
+			
+		}
+		
+	}
+	
+	private void markship(int N, int[][] board, String S){
+		
+	}
+}

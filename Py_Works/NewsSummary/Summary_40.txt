@@ -1,0 +1,2 @@
+"The power grid and other IoT systems, from traffic lights to the water supply, could be severely disrupted if the data they run on were to be altered," he says.
+"AI will power malware, and will use data from the target to send phishing emails that replicate human mannerisms and content," warns Andy Powell, head of cybersecurity at Capgemini UK, an IT consultancy.

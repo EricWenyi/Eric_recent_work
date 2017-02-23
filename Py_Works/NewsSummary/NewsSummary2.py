@@ -70,6 +70,7 @@ def weighted_pagerank(weight_graph):
 
     return scores
 
+
 def calculate_score(weight_graph, scores, i):
     length = len(weight_graph)
     d = 0.85
@@ -82,15 +83,17 @@ def calculate_score(weight_graph, scores, i):
         fraction = weight_graph[j][i] * scores[j]
         for k in range(length):
             denominator += weight_graph[j][k]
-        added_score += fraction / denominator
+        if abs(denominator - 0.0) < 0.01:
+            added_score += 0
+        else:
+            added_score += fraction / denominator
     weighted_score = (1 - d) + d * added_score
 
     return weighted_score
 
 
-
 if __name__ == '__main__':
-    with open("news.txt", "r") as myfile:
+    with open("News_1.txt", "r") as myfile:
         text = myfile.read().replace('\n' , '')
     summary = Summarize(text, 2)
 

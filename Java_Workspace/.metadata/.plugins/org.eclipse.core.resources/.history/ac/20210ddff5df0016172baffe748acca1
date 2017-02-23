@@ -1,0 +1,77 @@
+package Default;
+
+public class Solution {
+	public static String solution(int N, String S, String T){
+		// 0 means nothing, 1 means ship, 2 means hit
+		
+		int[][] board = new int[N][N];
+		String[] different_ships = S.split(","); //split different ships
+		
+		//System.out.println(different_ships[0]);
+		//System.out.println(different_ships[1]);
+		
+		for(int i = 0; i < different_ships.length; i++){
+			String start_point = different_ships[i].split(" ")[0]; //split start point of ship
+			String end_point = different_ships[i].split(" ")[1]; //split end point of ship
+			
+			int[] start_position = new int[2];
+			start_position = GetPosition(start_point);
+			int start_num = start_position[0];
+			int start_char = start_position[1];
+			
+			int[] end_position = new int[2];
+			end_position = GetPosition(end_point);
+			int end_num = end_position[0];
+			int end_char = end_position[1];
+			System.out.println("start point: " + start_num + " and " + start_char);
+			System.out.println("end point: " + end_num + " and " + end_char);
+			
+			for(int x = start_num; x <= end_num; x++){
+				for(int y = start_char; y <= end_char; y++){
+					board[x][y] = 1;
+				}
+			}
+			
+		}
+		
+		String[] different_shots = T.split(" ");
+		
+//		for(int i = 0; i < different_shots.length; i++){
+//			int shot_num = different_shots[i].charAt(0) - 49;
+//			int shot_char = different_shots[i].charAt(1) - 65;
+//			
+//			if( board[shot_num][shot_char] == 1){
+//				board[shot_num][shot_char] = 2;
+//			}
+//			else{
+//				;
+//			}
+//		}
+		
+		return "0";
+	}
+	
+	public static void main(String[] args){
+		int N = 4;
+		String S = "1A 2B,3C 3C";
+		String T = "1A 3C";
+		
+		solution(4,S,T);
+	}
+	
+	public static int[] GetPosition(String position){
+		int markpoint = 0;
+		int[] results = new int[2];
+		for(int i = 0; i < position.length(); i++){
+			if(position.charAt(i) > '9'){
+				markpoint = i;
+			}
+		}
+		String temp = position.substring(0,markpoint);
+		results[0] = Integer.parseInt(temp) - 1;
+		results[1] = position.charAt(markpoint) - 65;
+		return results;
+	}
+	
+	
+}

@@ -130,7 +130,7 @@ def is_full(challange, m = 3):
 
 Board = make_board()
 challange = print_board(Board)
-
+'''
 testing = [[8,None,None,None,None,None,None,None,None],
            [None,None,3,6,None,None,None,None,None],
            [None, 7,None,None,9,None,2,None,None],
@@ -140,13 +140,15 @@ testing = [[8,None,None,None,None,None,None,None,None],
            [None,None,1,None,None,None,None,6,8],
            [None,None,8,5,None,None,None,1,None],
            [None,9,None,None,None,None,4,None,None]]
+'''
+
 
 #wait = raw_input("PRESS ENTER TO SHOW THE ANSWER.")
 #print("Raw Answer: ")
 #print_answers(Board)
 #print("Calculated from your program: ")
-result = solving_soduku(testing)
-print_answers(result)
+#result = solving_soduku(testing)
+#print_answers(result)
 
 
 

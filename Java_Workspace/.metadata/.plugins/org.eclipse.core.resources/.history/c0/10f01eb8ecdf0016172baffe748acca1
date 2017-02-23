@@ -1,0 +1,39 @@
+package Default;
+
+public class Solution {
+	public static String solution(int N, String S, String T){
+		// 0 means nothing, 1 means ship, 2 means hit
+		
+		int[][] board = new int[N][N];
+		
+		String[] different_ships = S.split(",");
+		
+		//System.out.println(different_ships[0]);
+		//System.out.println(different_ships[1]);
+		
+		for(int i = 0; i < different_ships.length; i++){
+			String start_point = different_ships[i].split(" ")[0];
+			String end_point = different_ships[i].split(" ")[1];
+			
+			int start_num = Integer.parseInt(start_point.substring(0, 1)) - 1;
+			int start_char = start_point.charAt(1) - 65;
+			
+			int end_num = Integer.parseInt(end_point.substring(0, 1)) - 1;
+			int end_char = end_point.charAt(1) - 65;
+			System.out.println("start point: " + start_num + " and" + start_char);
+			System.out.println("end point: " + end_num + " and" + end_char);
+		}
+		
+		return "0";
+		
+	}
+	
+	public static void main(String[] args){
+		int N = 4;
+		String S = "1A 2B,1C 2D";
+		String T = "";
+		
+		solution(4,S,T);
+	}
+	
+}

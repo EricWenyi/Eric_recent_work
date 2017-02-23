@@ -1,5 +1,6 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
+import NewsSummary2
 
 def get_only_text(url):
  """
@@ -15,10 +16,20 @@ feed_xml = urlopen('http://feeds.bbci.co.uk/news/rss.xml').read()
 feed = BeautifulSoup(feed_xml.decode('utf8'))
 to_summarize = list(map(lambda p: p.text, feed.find_all('guid')))
 
-for i in range(5):
+for i in range(41,50):
+
     print(i)
     article_url = to_summarize[i]
     title, text = get_only_text(article_url)
-    print(text)
-    with open("testing%s.txt" % i, 'a') as myfile1:
+    text = text.replace("Share this with Email Facebook Messenger "
+                       "Messenger Twitter Pinterest WhatsApp LinkedIn Copy this link ", "")
+    with open("News_%s.txt" % i, 'a') as myfile1:
         myfile1.write(text)
+    with open("Title_%s.txt" % i, 'a') as myfile2:
+        myfile2.write(title)
+
+    string = text.replace('\n','')
+    summary = NewsSummary2.Summarize(string, 2)
+    with open("Summary_%s.txt" % i, 'a') as myfile3:
+        for sents in summary:
+            myfile3.write(sents + '\n')
